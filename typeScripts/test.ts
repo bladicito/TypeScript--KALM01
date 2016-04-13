@@ -1,26 +1,25 @@
+interface IEmailable {
+    name: string,
+    email: string
+}
 
-    interface Point {
-        x: number;
-        y: number
+
+function SendEmail(contact:IEmailable) {
+    console.log(`${contact.name} <${contact.email}>`);
+
+}
+
+SendEmail({
+    name: 'bladicito',
+    email: 'bladicito@yahoo.com'
+});
+
+class Company implements IEmailable {
+    name: string;
+    email: string;
+    constructor(companyName:string, companyEmail:string){
+        this.name = companyName;
+        this.email = companyEmail;
     }
 
-    class Monster {
-        name:string;
-        initialPosition:Point;
-
-        constructor(name, initialPosition) {
-            this.name = name;
-            this.initialPosition = initialPosition;
-        }
-
-        drawMonster() {
-            console.log(this.initialPosition.x);
-            console.log(this.initialPosition.y);
-        }
-    }
-
-    var scary = new Monster('Alien', {x: 0, y: 0});
-    scary.drawMonster();
-
-
-
+}
