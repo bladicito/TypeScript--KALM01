@@ -12,11 +12,11 @@ class Playlist {
     }
 
     play() {
-
+        this.songs[this.nowPlayingIndex].play();
     }
 
     stop() {
-
+        this.songs[this.nowPlayingIndex].stop();
     }
 
     get currentSong() {
