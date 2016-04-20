@@ -1,9 +1,11 @@
-var gulp           = require('gulp'),
-    typescript    = require('gulp-typescript'),
-    browserSync         = require('browser-sync'),
-    historyApiFallback  = require('connect-history-api-fallback'),
-    reload              = browserSync.reload
-    ;
+var gulp = require('gulp'),
+	typescript = require('gulp-typescript'),
+	browserSync = require('browser-sync'),
+	historyApiFallback = require('connect-history-api-fallback'),
+	reload = browserSync.reload,
+	less = require('gulp-less'),
+	path = require('path')
+	;
 
 
 tsFiles =  [
@@ -13,6 +15,17 @@ tsFiles =  [
     'typeScripts/app.ts'
 
 ];
+
+
+
+
+gulp.task('less', function () {
+  return gulp.src('./less/**/*.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest('./public/css'));
+});
 
 gulp.task('compileTypeScript', function () {
     return gulp.src(tsFiles)
