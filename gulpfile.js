@@ -7,7 +7,11 @@ var gulp           = require('gulp'),
 
 
 tsFiles =  [
-    'typeScripts/*.ts'
+
+    'typeScripts/playlist.ts',
+    'typeScripts/song.ts',
+    'typeScripts/app.ts'
+
 ];
 
 gulp.task('compileTypeScript', function () {
