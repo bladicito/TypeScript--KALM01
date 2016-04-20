@@ -35,7 +35,7 @@ class Playlist {
 
     }
 
-    renderInElement(list:HTMLElement) {
+    renderInElement(list: HTMLElement) {
         list.innerHTML = "";
 
 
