@@ -1,8 +1,8 @@
 class Playlist {
-    songs: Song[];
-    nowPlayingIndex: number;
+    songs:Song[];
+    nowPlayingIndex:number;
 
-    constructor () {
+    constructor() {
         this.songs = [];
         this.nowPlayingIndex = 0;
     }
@@ -24,29 +24,33 @@ class Playlist {
     }
 
     next() {
+        this.nowPlayingIndex + 1;
+
+        if (this.nowPlayingIndex > this.songs.length) {
+            this.nowPlayingIndex = 0;
+            this.songs[this.nowPlayingIndex].play();
+        } else {
+            this.songs[this.nowPlayingIndex].play();
+        }
 
     }
 
-    renderInElement(list: HTMLElement) {
+    renderInElement(list:HTMLElement) {
         list.innerHTML = "";
 
 
         /*
-        for (var x = 0; x < this.songs.length ; x++) {
-            list.innerHTML += this.songs[x].toHtml();
-        }
-        */
+         for (var x = 0; x < this.songs.length ; x++) {
+         list.innerHTML += this.songs[x].toHtml();
+         }
+         */
 
 
-
-        this.songs.map(function(currentItem) {
+        this.songs.map(function (currentItem) {
             list.innerHTML += currentItem.toHtml();
         });
 
     }
-
-
-
 
 
 }
