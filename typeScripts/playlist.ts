@@ -8,7 +8,7 @@ class Playlist {
     }
 
     addSong(song:Song) {
-
+        this.songs.push(song);
     }
 
     play() {
