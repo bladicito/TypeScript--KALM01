@@ -1,7 +1,4 @@
-/*
-Bitte Applikation code schreiben (nutzen der Klassen)
-Also UI kreieren und stylen.
-
-
-*/
+var songList = new Playlist(), song1 = new Song('test title', 'test artist', 'test duration', false);
+console.log(songList);
+console.log(song1);
 //# sourceMappingURL=app.js.map
