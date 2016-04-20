@@ -8,8 +8,12 @@ var gulp = require('gulp'),
 	;
 
 
-tsFiles = [
-	'typeScripts/*.ts'
+tsFiles =  [
+
+    'typeScripts/playlist.ts',
+    'typeScripts/song.ts',
+    'typeScripts/app.ts'
+
 ];
 
 
@@ -24,28 +28,30 @@ gulp.task('less', function () {
 });
 
 gulp.task('compileTypeScript', function () {
-	return gulp.src(tsFiles)
-		.pipe(typescript({
-			noImplicitAny: true,
-			out: 'output.js'
-		}))
-		.pipe(gulp.dest('scripts'))
-		.pipe(reload({stream: true}));
+    return gulp.src(tsFiles)
+        .pipe(typescript({
+            noImplicitAny: true,
+            out: 'output.js'
+        }))
+        .pipe(gulp.dest('scripts'))
+        .pipe(reload({stream:true}));
 });
 
 gulp.task('watch', function () {
-	gulp.watch('typeScripts/*.ts', ['compileTypeScript']);
-	gulp.watch('*.html', ['compileTypeScript']);
+    gulp.watch('typeScripts/*.ts', ['compileTypeScript']);
+    gulp.watch('*.html', ['compileTypeScript']);
 
 });
 
-gulp.task('browser-sync', function () {
-	browserSync({
-		server: {},
-		middleware: [historyApiFallback()],
-		ghostMode: false
-	});
+gulp.task('browser-sync', function() {
+    browserSync({
+        server : {},
+        middleware : [ historyApiFallback() ],
+        ghostMode: false
+    });
 });
 
 
-gulp.task('default', ['compileTypeScript', 'watch', 'browser-sync']);
+
+
+gulp.task('default', [ 'compileTypeScript', 'watch', 'browser-sync' ]);
