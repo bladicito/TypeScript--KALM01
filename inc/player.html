@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="mootools-core-1.4.5.js"></script>
+<script type="text/javascript">
+ <!--
+window.addEvent('domready', function(){
+var Player = function(songs, container){
+	this.songs 			 = songs;
+	this.body			 = document.id(document.body);
+	this.container 		 = document.id('container');
+	this.spinners		 = $$('.cassette-spinner');
+	this.rotationCounter = 0;
+	this.rotationStep 	 = 18;
+	this.rotationSpeed   = 100;
+	this.playingTrack	 = false;
+};
+
+Player.prototype.rotateSpiners = function(){
+	var style = 'rotate('+this.rotationCounter+'deg)';
+	this.spinners.each(function(item, index){
+		item.setStyles({
+			"-webkit-transform": style,
+			"-moz-transform": style,
+			"-o-transform": style,
+			"-ms-transform": style,
+			transform: style
+		});
+	});
+	this.rotationCounter += this.rotationStep;
+
+	if (this.rotationCounter == 360) { 
+		this.rotationCounter = 0 
+	}
+	
+};
+
+Player.prototype.startSpinning	= function(){
+	this.stoper = this.rotateSpiners.periodical(this.rotationSpeed, this);
+};
+
+Player.prototype.stopSpinning	= function(){
+	clearInterval(this.stoper);
+};
+
+Player.prototype.play	= function(){
+	if(!this.playingTrack){
+		this.track = new Element('audio',{
+			 src:'junk.ogg', 
+			 preload:'auto',  
+			 type:'audio/ogg'
+		}).inject(this.body);
+		
+		this.startSpinning();
+		this.track.play();
+		this.playingTrack = true;
+	}
+};
+
+Player.prototype.init = function(){
+	var self = this;
+	document.id('play').addEvent('click', function(){
+		self.play();
+	});
+	
+	document.id('stop').addEvent('click', function(){
+		self.stopSpinning();
+		self.track.destroy();
+		self.playingTrack = false;
+	});
+};
+
+var cas = new Player('songs', 'player');
+cas.init();
+})
+ -->
+</script>
+<style type="text/css">
+.cassette-spinner {
+	height:125px;
+	width:125px;
+	-moz-transform: rotate(90deg); 
+}
+#player{
+	width:600px;
+	height:400px;
+	background:url(cassette-bottom.png);
+	position:relative;
+}
+
+#spinner-left{
+	position:absolute;
+	left: 351px;
+	top: 115px;
+	z-index:1;
+}
+
+#spinner-right{
+	position:absolute;
+	left: 110px;
+	top: 122px;
+	z-index:1;
+}
+#cassette-front{
+	position:absolute;
+	width:600px;
+	height:400px;
+	background:url(cassette-front.png);
+	z-index:2;
+	
+}
+
+</style>
+</head>
+
+<body>
+<div id="player">
+	<div class="cassette-spinner" id="spinner-left">
+  	 <img src="spinner.png" width="125" height="125" />
+   </div>
+	<div class="cassette-spinner" id="spinner-right">
+    	<img src="spinner.png" width="125" height="125"  />
+    </div>
+    <div id="cassette-front">
+    </div>
+    
+</div>
+<a href="#" id="play">play</a>
+    <a href="#" id="stop">stop</a>
+    <a href="#" id="pause">pause</a>
+</body>
+</html>
