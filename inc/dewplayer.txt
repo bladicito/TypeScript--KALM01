@@ -1,0 +1,5 @@
+Flash audio player mini as fallback.
+
+www.dewplayer.fr/  -> It seems like the project it is not available anymore.
+http://www.mysplayer.com/dewplayer/  -> here a site clone of the project...
+
