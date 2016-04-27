@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
 	typescript = require('gulp-typescript'),
 	browserSync = require('browser-sync'),
-	rename = require('gulp-rename'),
 	historyApiFallback = require('connect-history-api-fallback'),
 	reload = browserSync.reload,
 	less = require('gulp-less'),
@@ -10,20 +9,29 @@ var gulp = require('gulp'),
 
 
 tsFiles = [
-
-	'typeScripts/playlist.ts',
-	'typeScripts/song.ts',
-	'typeScripts/app.ts'
-
+	'typeScripts/*.ts'
 ];
-var lessFiles = ["lessFiles/*.less"];
+
+
+<<<<<<< HEAD
+
 
 gulp.task('less', function () {
-	return gulp.src(lessFiles)
-	.pipe(less())
-	.pipe(rename({dirname : ''}))
-	.pipe(gulp.dest('css'))
+  return gulp.src('./less/**/*.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest('./public/css'));
 });
+=======
+tsFiles =  [
+
+    'typeScripts/playlist.ts',
+    'typeScripts/song.ts',
+    'typeScripts/app.ts'
+
+];
+>>>>>>> 58cc46a8880b0dea111ef307e48657e7181587aa
 
 gulp.task('compileTypeScript', function () {
 	return gulp.src(tsFiles)
@@ -38,7 +46,6 @@ gulp.task('compileTypeScript', function () {
 gulp.task('watch', function () {
 	gulp.watch('typeScripts/*.ts', ['compileTypeScript']);
 	gulp.watch('*.html', ['compileTypeScript']);
-	gulp.watch('*.less', ['less']);
 
 });
 
@@ -51,4 +58,4 @@ gulp.task('browser-sync', function () {
 });
 
 
-gulp.task('default', ['compileTypeScript','less', 'watch', 'browser-sync']);
+gulp.task('default', ['compileTypeScript', 'watch', 'browser-sync']);
