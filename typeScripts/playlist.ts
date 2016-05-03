@@ -24,9 +24,9 @@ class Playlist {
     }
 
     next() {
-        this.nowPlayingIndex + 1;
+        this.nowPlayingIndex += 1;
 
-        if (this.nowPlayingIndex > this.songs.length) {
+        if (this.nowPlayingIndex > this.songs.length -1) {
             this.nowPlayingIndex = 0;
             this.songs[this.nowPlayingIndex].play();
         } else {
