@@ -9,9 +9,6 @@ songList.addSong(songTwo);
 songList.addSong(songThree);
 
 
-
-
-
 var htmlFactory = (html) => {
     return document.createElement(html);
 };
@@ -20,6 +17,9 @@ var htmlFactory = (html) => {
 var playlistHtml = htmlFactory('ol'),
     apText = document.getElementsByClassName('ap-text')[0],
     nextButton = document.getElementsByClassName('js-play-next')[0],
+    prevButton = document.getElementsByClassName('js-play-prev')[0],
+    playButton = document.getElementsByClassName('js-play')[0],
+    pauseButton = document.getElementsByClassName('js-pause')[0],
     titleHtml = htmlFactory('h3'),
     artistHtml = htmlFactory('h5');
 
@@ -37,14 +37,25 @@ var renderCurrentSong = () => {
 renderCurrentSong();
 
 
-
-
 document.body.getElementsByClassName('playlist-box')[0].appendChild(playlistHtml);
 document.body.getElementsByTagName('ol')[0].className = "playlist-list";
 songList.renderInElement(playlistHtml);
 
+playButton.addEventListener('click', (e) => {
+    songList.play();
+    renderCurrentSong();
+});
+pauseButton.addEventListener('click', (e) => {
+    songList.stop();
+    renderCurrentSong();
+});
 
-nextButton.addEventListener('click',(e) =>{
+prevButton.addEventListener('click', (e) => {
+    songList.prev();
+    renderCurrentSong();
+});
+
+nextButton.addEventListener('click', (e) => {
     songList.next();
     console.log(songList.currentSong);
     renderCurrentSong();
