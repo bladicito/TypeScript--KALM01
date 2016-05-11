@@ -41,15 +41,16 @@ document.body.getElementsByClassName('playlist-box')[0].appendChild(playlistHtml
 document.body.getElementsByTagName('ol')[0].className = "playlist-list";
 songList.renderInElement(playlistHtml);
 
+
+//added eventlistener on click to play the song. 
 playButton.addEventListener('click', (e) => {
     songList.play();
-    renderCurrentSong();
 });
+//eventlistener onclick to pause the song
 pauseButton.addEventListener('click', (e) => {
     songList.stop();
-    renderCurrentSong();
 });
-
+//button eventlistener to go to the previous song and render it (changes song when clicked)
 prevButton.addEventListener('click', (e) => {
     songList.prev();
     renderCurrentSong();
