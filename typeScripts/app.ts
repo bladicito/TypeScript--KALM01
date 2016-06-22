@@ -1,7 +1,7 @@
 var songList = new Playlist(),
-    songOne = new Song('test1', 'test1', 'test1', true),
-    songTwo = new Song('test2', 'test2', 'test2', false),
-    songThree = new Song('test3', 'test3', 'test3', false)
+    songOne = new Song( 'daeboss' , 'Xen', 'Dä Boss', true),
+    songTwo = new Song('igm', 'Xen', 'Ich gege Mich', false),
+    songThree = new Song('junk', 'Paul McCartney', 'Unplugged', false)
     ;
 
 songList.addSong(songOne);

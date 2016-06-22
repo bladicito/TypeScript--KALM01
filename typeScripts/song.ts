@@ -10,11 +10,22 @@ class Song  {
     }
 
     play() {
-        console.log(Helpers.isFirefox);
+        
+        
         this.isPlaying = true;
+        var musicFileExtension = helpers.isFirefox() ? '.ogg' : '.mp3';
+        var musicFilesDirectory = './inc/';
+        var pathToSong = musicFilesDirectory + this.title + musicFileExtension;
+        var audioTag = document.createElement('audio');
+        audioTag.setAttribute('src', pathToSong);
+        audioTag.className = 'js-audiotag';
+        document.body.appendChild(audioTag);
+        audioTag.play();
     }
 
     stop() {
+        var audioTag = document.getElementsByClassName('js-audiotag')[0];
+        document.body.removeChild(audioTag);
         this.isPlaying = false;
     }
 

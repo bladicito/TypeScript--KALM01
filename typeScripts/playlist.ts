@@ -26,6 +26,7 @@ class Playlist {
 
     next() {
         // Counter (incremnt) for the next Position in Array, counts 1 up.
+        this.stop();
         this.nowPlayingIndex += 1;
 
         // The if condition controlls if we got after the last position of the list. If it's true, it sets the now playing index to 0 (first song) and plays the song.
@@ -41,6 +42,7 @@ class Playlist {
     }
 
     prev() {
+        this.stop();
         // Counter (decrement) for the previous Position uîn Array, counts 1 down.
         this.nowPlayingIndex -= 1;
 
