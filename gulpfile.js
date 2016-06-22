@@ -10,11 +10,11 @@ var gulp = require('gulp'),
 
 
 tsFiles = [
-
+	'typeScripts/helpers.ts',
 	'typeScripts/playlist.ts',
 	'typeScripts/song.ts',
-	'typeScripts/app.ts',
-	'typeScripts/helpers.ts'
+	'typeScripts/app.ts'
+	
 
 ];
 var lessFiles = ["lessFiles/*.less"];

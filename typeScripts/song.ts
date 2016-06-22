@@ -1,6 +1,7 @@
+var helpers = new Helpers();
+
 class Song  {
     constructor(
-        public helpers  : Helpers = new Helpers(),
         public title    : string,
         public artist   : string,
         public duration : string,
