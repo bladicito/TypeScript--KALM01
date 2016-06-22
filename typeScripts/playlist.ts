@@ -12,6 +12,7 @@ class Playlist {
     }
 
     play() {
+        
         this.songs[this.nowPlayingIndex].play();
     }
 

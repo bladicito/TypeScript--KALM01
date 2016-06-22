@@ -13,7 +13,8 @@ tsFiles = [
 
 	'typeScripts/playlist.ts',
 	'typeScripts/song.ts',
-	'typeScripts/app.ts'
+	'typeScripts/app.ts',
+	'typeScripts/helpers.ts'
 
 ];
 var lessFiles = ["lessFiles/*.less"];

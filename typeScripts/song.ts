@@ -1,13 +1,15 @@
 class Song  {
     constructor(
-        public title: string,
-        public artist: string,
-        public duration: string,
-        public isPlaying: boolean = false) {
+        public helpers  : Helpers = new Helpers(),
+        public title    : string,
+        public artist   : string,
+        public duration : string,
+        public isPlaying   : boolean = false) {
         
     }
 
     play() {
+        console.log(Helpers.isFirefox);
         this.isPlaying = true;
     }
 
